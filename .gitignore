@@ -1,0 +1,63 @@
+
+# ==========================================
+# Secrets and environment configuration
+# ==========================================
+.env
+.env.*
+!.env.example
+.streamlit/secrets.toml
+
+# AWS credentials and private keys
+.aws/
+*.pem
+*.key
+
+# ==========================================
+# Python virtual environments
+# ==========================================
+null/
+.venv/
+venv/
+__pycache__/
+*.py[cod]
+
+# ==========================================
+# Local vector databases and generated data
+# ==========================================
+chroma_db/
+.chroma/
+embedded_chunks.json
+
+# ==========================================
+# Test documents and temporary test files
+# ==========================================
+data/*.pdf
+lambda_ocr/*.pdf
+
+bedrock-debug.txt
+bedrock-input.json
+bedrock-test.json
+bedrock-*.json
+indexer-test-*.json
+
+# ==========================================
+# Local AWS configuration and policy copies
+# ==========================================
+s3-notification*.json
+vector-s3-policy.json
+
+# ==========================================
+# Third-party repositories and Lambda test files
+# ==========================================
+lambda_ocr/aws-lambda-tesseract-layer/
+lambda_ocr/lambda-response.json
+lambda_ocr/test_bedrock_embedding.py
+
+# ==========================================
+# Logs, editors, and operating-system files
+# ==========================================
+*.log
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db

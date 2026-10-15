@@ -1,0 +1,10 @@
+
+streamlit
+pypdf
+sentence-transformers
+chromadb
+huggingface_hub
+python-dotenv
+boto3
+rank-bm25
+groq

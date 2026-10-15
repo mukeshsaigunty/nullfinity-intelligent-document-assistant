@@ -1,0 +1,23 @@
+
+flowchart TD
+    A["User uploads PDF"] --> B["Amazon S3: raw/"]
+    B -->|"S3 ObjectCreated event"| C["OCR Lambda"]
+    C --> D["PDF text extraction and Tesseract OCR"]
+    D --> E["Amazon S3: processed/"]
+    E -->|"S3 ObjectCreated event"| F["Document Indexer Lambda"]
+    F --> G["Text chunking"]
+    G --> H["Sentence Transformers embeddings"]
+    H --> I["Amazon S3: vectors/"]
+
+    J["User asks a question"] --> K["Streamlit application"]
+    K --> L["Query embedding"]
+    I --> M["Dense vector similarity search"]
+    L --> M
+    I --> N["BM25 keyword search"]
+    K --> N
+    M --> O["Reciprocal Rank Fusion"]
+    N --> O
+    O --> P["Cross-Encoder reranking"]
+    P --> Q["Relevant passages with page metadata"]
+    Q --> R["Groq LLM"]
+    R --> S["Answer with document and page citations"]

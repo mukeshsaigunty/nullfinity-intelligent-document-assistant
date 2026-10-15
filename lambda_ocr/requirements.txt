@@ -1,0 +1,5 @@
+
+boto3
+pypdf
+pdf2image
+pytesseract
